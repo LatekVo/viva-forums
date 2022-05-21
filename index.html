@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title id="title">Title</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <link rel="stylesheet" type="text/css" href="style.css" media=”screen” />
 
-        input {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-
-    </style>
 </head>
 <body>
 
+<div class="login-box">
+    <div class="login-header">
+        Login
+    </div>
+    <div class="login-inputs">
+
+        <div class="login-field">
+            <label for="login-username"><b>Username</b></label>
+            <input type="text" id="login-username" required>
+        </div>
+
+        <div class="login-field">
+            <label for="login-password"><b>Password</b></label>
+            <input type="password" id="login-password" required>
+        </div>
+
+        <div class="login-field">
+            <label for="remember-me"><b>Remember me</b></label>
+            <input type="checkbox" checked="checked" id="remember-me">
+        </div>
+
+        <div class="login-field">
+            <button class="login-button" id="login-login">
+                Login
+            </button>
+            <button class="login-button" id="login-register">
+                Register
+            </button>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
