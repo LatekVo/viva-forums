@@ -5,27 +5,57 @@
     <title>Login to Viva</title>
     <style>
         div.login-box {
-            height: 60vh;
-            width: 60vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: none;
+            position: absolute;
+            top: 20vh;
+            left: 60vw;
+            width: 40vh;
+
+            border: black solid thin;
+            border-radius: 1%;
         }
         div.login-header {
-            width: 100%;
-            height: 12%;
+            display: flex;
 
+            height: 5vh;
+            width: 100%;
+
+            align-items: center;
             text-align: left;
+            text-indent: 1vw;
+
             background-color: #5645ce;
+
+            font-size: larger;
         }
-        input {
+
+        div.login-inputs {
             display: block;
-            width: 55vw;
-            padding: 12px 20px;
+
+            width:100%;
+        }
+        div.login-field {
+            display: table;
+
+            margin: 1vh 0 1vh 3vh;
+            width: 100%;
+        }
+        #uname, #passwd {
+            display: block;
+            width: 45%;
+
+
+            padding: 4px 10px;
             margin: 8px 0;
-            display: inline-block;
+
             border: 1px solid #ccc;
             box-sizing: border-box;
+
+            font-size: smaller;
+        }
+        .login-error {
+            display: none;
+            color: darkred;
         }
     </style>
 </head>
@@ -35,15 +65,31 @@
             Login
         </div>
         <div class="login-inputs">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" name="uname" required>
 
-            <label for="passwd"><b>Password</b></label>
-            <input type="password" name="passwd" required>
-
-            <div class="login-remember">
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+            <div class="login-field">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" id="uname" required>
             </div>
+
+            <div class="login-field">
+                <label for="passwd"><b>Password</b></label>
+                <input type="password" id="passwd" required>
+            </div>
+
+            <div class="login-field">
+                <label for="remember-me"><b>Remember me</b></label>
+                <input type="checkbox" checked="checked" id="remember-me">
+            </div>
+
+            <div class="login-field">
+                <button class="login-button" id="login-login">
+                    Login
+                </button>
+                <button class="login-button" id="login-register">
+                    Register
+                </button>
+            </div>
+
         </div>
     </div>
 </body>
