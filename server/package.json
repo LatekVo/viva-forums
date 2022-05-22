@@ -1,0 +1,12 @@
+{
+  "name": "viva-forums",
+  "version": "0.1.0",
+  "description": "A web based, social media platform",
+  "main": "server.js",
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "dependencies": {
+  }
+}
