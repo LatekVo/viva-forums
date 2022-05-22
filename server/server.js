@@ -1,4 +1,4 @@
-import http from "http";
+var http = require('http');
 
 function parse(response, data) {
     // all of the json data gets valiated and processed here.
