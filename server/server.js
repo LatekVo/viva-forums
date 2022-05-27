@@ -1,8 +1,12 @@
-import http from "http";
+// Node.js
+
+var http = require('http');
 
 function parse(response, data) {
     // all of the json data gets valiated and processed here.
     // compose a rosponse here as well
+    console.log("received: ", data);
+    console.log("response: ", response);
 }
 
 let server = http.createServer(function(request, response) {

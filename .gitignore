@@ -1,0 +1,7 @@
+server/package-lock.json
+
+# Default ignored files
+.idea
+.idea/shelf/
+.idea/workspace.xml
+.idea/httpRequests/
