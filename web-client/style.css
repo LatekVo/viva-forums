@@ -1,7 +1,6 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #89cff0;
 }
 
 input {
@@ -15,7 +14,6 @@ input {
 
 div.login-box {
     display: none;
-
     position: absolute;
     top: 20vh;
     left: 60vw;
