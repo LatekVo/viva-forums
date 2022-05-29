@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+</head>
+<body>
+
+
+
+<!-- Overlaying elements -->
+<div class="login-box">
+    <div class="login-header">
+        Login
+    </div>
+    <div class="login-inputs">
+
+        <form action="assets/login.php" method="POST">
+            <!-- on clicking the register button, a full redirect will occur -->
+            <div class="login-field">
+                <label for="login-username"><b>Username</b></label>
+                <input type="text" id="login-username" required>
+            </div>
+
+            <div class="login-field">
+                <label for="login-password"><b>Password</b></label>
+                <input type="password" id="login-password" required>
+            </div>
+
+            <div class="login-field">
+                <label for="remember-me"><b>Remember me</b></label>
+                <input type="checkbox" checked="checked" id="remember-me">
+            </div>
+
+            <div class="login-field">
+                <button class="login-button" id="login-login" type="submit">
+                    Login
+                </button>
+                <button class="login-button" id="login-register" type="reset">
+                    Register
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="assets/main.js"></script>
+
+</body>
+</html>
