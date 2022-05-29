@@ -8,5 +8,6 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
+    "mongodb": "^4.6.0"
   }
 }
