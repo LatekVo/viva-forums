@@ -3,6 +3,48 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+div.register-background {
+    position: absolute;
+
+    width: 80vw;
+    height: 100vh;
+
+    top: 0;
+    left: 50vw;
+    transform: translateX(-50%);
+
+    background: repeating-linear-gradient(
+            -45deg,
+            #808dcf,
+            #808dcf 30px,
+            #5d6caf 30px,
+            #5d6caf 60px
+    );
+    /* example of a gradient to try out
+        background: repeating-linear-gradient(
+            -45deg,
+            #9ea9ef,
+            #606dbc 20px,
+            #414551 20px,
+            #465298 40px
+    );
+     */
+}
+div.bar {
+    position: absolute;
+
+    width: 4vw;
+    height: 100vh;
+
+    top: 0;
+    left: 10vw;
+    transform: translateX(-50%);
+
+    background-color: #334;
+}
+div.bar:nth-child(2) {
+    left: 90vw;
+}
 input {
     padding: 12px 20px;
     margin: 8px 0;
@@ -21,7 +63,23 @@ div.login-box {
 
     border: black solid thin;
     border-radius: 1%;
+
+    background-color: antiquewhite;
 }
+div.register-box {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+
+    width: 40vw;
+
+    border: black solid thin;
+    border-radius: 1%;
+
+    background-color: antiquewhite;
+}
+
 div.login-header {
     display: flex;
 
@@ -46,6 +104,12 @@ div.login-field {
     display: table;
 
     margin: 1vh 0 1vh 3vh;
+    width: 100%;
+}
+div.register-field {
+    display: table;
+
+    margin: 2vh 1vw 2vh 3vh;
     width: 100%;
 }
 #login-username, #login-password {

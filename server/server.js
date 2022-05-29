@@ -17,28 +17,51 @@ function parse(response, data) {
 let server = http.createServer(function(request, response) {
     console.log("received a request");
 
-    if (request.method != 'POST') {
-        console.log("bad request type: ", request.method)
-    } else {
-        var body = '';
-        request.on('data', function (data) {
-            body += data;
-        });
-        request.on('end', function () {
-            try {
-                var post = JSON.parse(body);
-                parse(request, post);
-                response.writeHead(200, {"Content-Type": "text/plain"});
-                response.end();
-                return;
-            } catch (err) {
-                response.writeHead(500, {"Content-Type": "text/plain"});
-                response.write("Bad Post Data. Error: ", err);
-                response.end();
-                return;
-            }
-        });
+    switch(request.method) {
+        case 'POST':
+            var body = '';
+            request.on('data', function (data) {
+                body += data;
+            });
+            request.on('end', function () {
+                try {
+                    let post = JSON.parse(body);
+                    parse(request, post);
+                    response.writeHead(200, {"Content-Type": "text/plain"});
+                    response.end();
+                    return;
+                } catch (err) {
+                    response.writeHead(500, {"Content-Type": "text/plain"});
+                    response.write("Bad Post Data. Error: ", err);
+                    response.end();
+                    return;
+                }
+            });
+            break;
+        case 'GET':
+            var body = '';
+            request.on('data', function (data) {
+                body += data;
+            });
+            request.on('end', function () {
+                try {
+                    let post = JSON.parse(body);
+                    parse(request, post);
+                    response.writeHead(200, {"Content-Type": "text/plain"});
+                    response.end();
+                    return;
+                } catch (err) {
+                    response.writeHead(500, {"Content-Type": "text/plain"});
+                    response.write("Bad Post Data. Error: ", err);
+                    response.end();
+                    return;
+                }
+            });
+            break;
+        default:
+            console.log("bad request type: ", request.method)
     }
+    console.log("response sent")
 });
 /* gonna try something different
 // close neccesary things before exiting
