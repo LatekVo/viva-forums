@@ -8,6 +8,7 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
+    "express": "^4.18.1",
     "mongodb": "^4.6.0"
   }
 }
