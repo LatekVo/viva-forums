@@ -160,7 +160,7 @@ div.bar {
     position: absolute;
 
     width: 4vw;
-    height: 100vh;
+    height: 100%;
 
     top: 0;
     left: 10vw;
@@ -256,22 +256,62 @@ div.register-field {
     color: darkred;
 }
 div.post{
-
+    color: whitesmoke;
+    width: 40vw;
+    display: block;
 }
-div.post-section{
+.post-section{
     position: absolute;
-    width: 500px;
-    height: 80%;
+    width: 45vw;
     background-color: #A9A9A9;
-    border-radius: 25px;
     padding: 20px;
-
+    left: 15vw;
+}
+div.post-time {
+    font-size: small;
+    background-color: #BEBEBE;
+    margin: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    color: darkblue;
 }
 div.post-name{
     background-color: #C0C0C0;
     border-radius: 5px;
     padding: 7px;
-    color: chocolate;
-    border-left: 7px blue solid;
-    ;
+    border-left: 7px lightblue solid;
+}
+div.post-creator{
+    margin-bottom: 5px;
+    border-bottom: 1px solid red;
+}
+div.post-discription{
+    border-bottom: 2px black solid;
+    margin-bottom: 50px;
+}
+.post img{
+    width: 95%;
+
+}
+div.bars {
+    position: absolute;
+
+    width: 4vw;
+    height: 100vw;
+    z-index: -2;
+    top: 0;
+    left: 10vw;
+    transform: translateX(-50%);
+
+    background-color: #334;
+}
+.bars.left{
+    left: 90vw;
+}
+.friends-section{
+    background-color: black;
+    width: 25vw;
+    height: 80vh;
+    position: absolute;
+    left: 62vw;
 }
