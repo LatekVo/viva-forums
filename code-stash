@@ -1,0 +1,28 @@
+CSS - borked mongodb
+
+/* gonna try something different
+// close neccesary things before exiting
+var Handler = function() {
+    process.on('exit', () => {
+        MongoClient.close();
+        console.log("exiting");
+    });
+}
+
+console.log("trying to start mongodb...");
+const client = new MongoClient(mongourl);
+async function initDb() {
+    let response = await client.connect()
+        .catch((err) => {
+            console.error(err);
+        });
+
+    if (client.connected()) {
+        console.log("successfully started mongodb");
+    } else {
+        console.log("failed to start mongodb, exiting!");
+        process.exit(1);
+    }
+}
+initDb();
+*/

@@ -180,7 +180,7 @@ input {
 }
 
 div.login-box {
-    display: none;
+    /*display: none;*/
 
     position: absolute;
     top: 20vh;
