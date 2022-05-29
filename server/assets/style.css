@@ -25,6 +25,8 @@ header {
     font-weight: 500;
     color: #edf0f1;
     text-decoration: none;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
 .nav__links {
@@ -33,7 +35,7 @@ header {
 }
 
 .nav__links li {
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
 .nav__links li a {
@@ -178,7 +180,7 @@ input {
 }
 
 div.login-box {
-    /*display: none;*/
+    display: none;
 
     position: absolute;
     top: 20vh;
@@ -252,4 +254,24 @@ div.register-field {
 .login-error {
     display: none;
     color: darkred;
+}
+div.post{
+
+}
+div.post-section{
+    position: absolute;
+    width: 500px;
+    height: 80%;
+    background-color: #A9A9A9;
+    border-radius: 25px;
+    padding: 20px;
+
+}
+div.post-name{
+    background-color: #C0C0C0;
+    border-radius: 5px;
+    padding: 7px;
+    color: chocolate;
+    border-left: 7px blue solid;
+    ;
 }
