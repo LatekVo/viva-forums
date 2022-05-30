@@ -3,7 +3,9 @@
 var http = require('http');
 var events = require("events");
 var fs = require('fs');
+
 var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser');
 
 // local database
 var db = require('./database')
@@ -14,6 +16,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/assets/'));
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(cookieParser());
 
 // seems like express can also process xmlhttp.. requests pretty well, hence the (req, res)
 app.get('/', function(req, res) {
@@ -23,10 +26,14 @@ app.get('/', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-    var {username, password} = req.body;
-    console.log(uname);
+    var {username, password, remember} = req.body;
+    console.log(req.body);
+});
+app.post('/login', function(req, res) {
+    var {username, password, remember} = req.body;
+    console.log(req.body);
 });
 
 //server.listen(3000);
-var expressServer = app.listen(3000);
+var server = app.listen(3000);
 console.log("server started");
