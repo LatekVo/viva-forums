@@ -238,7 +238,7 @@ div.register-field {
     margin: 2vh 1vw 2vh 3vh;
     width: 100%;
 }
-#login-username, #login-password {
+input[type="text"], input[type="password"], input[type="email"] {
     display: block;
     width: 45%;
 

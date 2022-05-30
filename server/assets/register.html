@@ -20,25 +20,30 @@
   </div>
   <div class="login-inputs">
 
-    <form action="assets/login.php" method="POST">
+    <form action="register" method="POST">
       <!-- on clicking the register button, a full redirect will occur -->
       <div class="register-field">
         <label for="login-username"><b>Username</b></label>
-        <input type="text" id="login-username" required>
+        <input type="text" id="login-username" name="username" required>
+      </div>
+
+      <div class="register-field">
+        <label for="login-email"><b>Email</b></label>
+        <input type="email" id="login-email" name="email" required>
       </div>
 
       <div class="register-field">
         <label for="login-password"><b>Password</b></label>
-        <input type="password" id="login-password" required>
+        <input type="password" id="login-password" name="password" required>
       </div>
 
       <div class="register-field">
-        <label for="remember-me"><b>Remember me</b></label>
-        <input type="checkbox" checked="checked" id="remember-me">
+        <label for="login-password-re"><b>Repeat password</b></label>
+        <input type="password" id="login-password-re" name="passwordRepeat" required>
       </div>
 
       <div class="register-field">
-        <button class="login-button" id="login-register" type="reset">
+        <button class="login-button" id="login-register" type="submit">
           Register
         </button>
       </div>
