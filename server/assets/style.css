@@ -10,8 +10,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 18px 10%;
     background-color: #24252a;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
 }
 
 .logo {
@@ -265,7 +270,7 @@ div.post{
     width: 45vw;
     background-color: #A9A9A9;
     padding: 20px;
-    left: 15vw;
+    left: 14vw;
 }
 div.post-time {
     font-size: small;
@@ -291,6 +296,9 @@ div.post-discription{
 }
 .post img{
     width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 div.bars {
@@ -312,6 +320,9 @@ div.bars {
     background-color: black;
     width: 25vw;
     height: 80vh;
-    position: absolute;
-    left: 62vw;
+    left: 61vw;
+    overflow: hidden;
+    position: fixed;
+    top: 10vh;
+    color: whitesmoke;
 }
