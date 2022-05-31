@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <a class="logo" href="/"><img src="#" alt="logo">(Name)</a>
+    <a class="logo" href="/"><img src="https://media.discordapp.net/attachments/923730720218812416/981329257789796423/Viva.png?width=1460&height=821" alt="logo"></a>
     <nav>
         <ul class="nav__links">
             <li><a href="#">Home <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
@@ -19,7 +19,7 @@
             </svg></a></li>
         </ul>
     </nav>
-    <button class="login-show" id="login-show" href="#">Login</button>
+    <button class="login-show" id="login-show">Login</button>
 </header>
 <!-- Overlaying elements -->
 <div class="login-box">
@@ -30,6 +30,7 @@
 
         <form action="login" method="POST">
             <!-- on clicking the register button, a full redirect will occur -->
+            <div class="login-error">Lorem Ipsum </div>
             <div class="login-field">
                 <label for="login-username"><b>Username</b></label>
                 <input type="text" id="login-username" name="username" required>
@@ -53,6 +54,7 @@
                     Register
                 </button>
             </div>
+
 
         </form>
     </div>
@@ -95,8 +97,9 @@
         </div>
     </div>
 </div>
-<div class="friends-section">
-    <div class="friends-tab">Kontakty - przyjaciele</div>
+<div class="post-make">
+    <div class="post-owner">Jak minął dzień?<br>
+        Opisz go, w swoim poście!</div>
 </div>
 <script src="main.js"></script>
 

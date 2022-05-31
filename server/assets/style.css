@@ -4,13 +4,13 @@
     padding: 0;
 }
 body {
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 10%;
     background-color: #24252a;
     overflow: hidden;
     position: fixed;
@@ -21,6 +21,10 @@ header {
 
 .logo {
     cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color:white;
 }
 
 .nav__links a,
@@ -173,6 +177,7 @@ div.login-box {
     background-color: antiquewhite;
 }
 div.register-box {
+
     position: absolute;
     left: 50vw;
     top: 50vh;
@@ -199,6 +204,17 @@ div.login-header {
     background-color: #5645ce;
 
     font-size: larger;
+}
+.login-button{
+    background-color: #1F51FF;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    border: 3px blue solid;
+    margin: 5px 3px 0;
+}
+.login-button:hover{
+    cursor: pointer;
 }
 
 div.login-inputs {
@@ -233,7 +249,9 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 .login-error {
     display: none;
-    color: darkred;
+    color: white;
+    text-align: center;
+    background-color: red;
 }
 div.post{
     color: whitesmoke;
@@ -243,27 +261,30 @@ div.post{
 .post-section{
     position: absolute;
     width: 45vw;
-    background-color: #A9A9A9;
+    background-color: #7393B3;
     padding: 20px;
     left: 14vw;
+    height: 100vw;
 }
 div.post-time {
     font-size: small;
-    background-color: #BEBEBE;
+    background-color: #CCCCFF;
     margin: 5px;
     padding: 2px;
     border-radius: 5px;
     color: darkblue;
 }
 div.post-name{
-    background-color: #C0C0C0;
+    background-color: #CCCCFF;
     border-radius: 5px;
     padding: 7px;
     border-left: 7px lightblue solid;
+    color:#0F52BA;
 }
 div.post-creator{
     margin-bottom: 5px;
     border-bottom: 1px solid red;
+    text-shadow: #5D3FD3 3px 2px;
 }
 div.post-discription{
     border-bottom: 2px black solid;
@@ -291,16 +312,7 @@ div.bars {
 .bars.left{
     left: 90vw;
 }
-.friends-section{
-    background-color: black;
-    width: 25vw;
-    height: 80vh;
-    left: 61vw;
-    overflow: hidden;
-    position: fixed;
-    top: 10vh;
-    color: whitesmoke;
-}
+
 .outer-background{
     position: absolute;
 
@@ -322,6 +334,34 @@ div.bars {
     right: -10vh;
     width: 10vw;
 }
-.login-show{
+.post:nth-of-type(1){
+    margin-top: 4vw;
+}
+.post-make{
+    background-color: #7393B3;
+    width: 25vw;
+    height: 60vh;
+    left: 61vw;
+    overflow: hidden;
+    position: fixed;
+    top: 9vh;
+    color: whitesmoke;
+    border-radius: 3px;
+    padding: 15px 15px;
+}
+.friends-tab{
 
+}
+a img{
+    width: 110px;
+    margin-left: 10vw;
+}
+.login-show{
+    margin-right: 10vw;
+}
+.post-owner{
+    text-align: center;
+    background-color: #CCCCFF;
+    padding: 20px;
+    border-radius: 20px;
 }
