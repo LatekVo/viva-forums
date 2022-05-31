@@ -18,7 +18,7 @@ app.use(cookieParser());
 // wow looks so much cleaner without semicolons
 let dbpath = "./db_database"
 let dbCache = undefined
-let initDb = async () => {
+async function initDb() {
     dbCache = JSON.parse(
         await fs.promises.readFile(
             dbpath,
@@ -26,12 +26,11 @@ let initDb = async () => {
         )
     );
 }
-initDb();
 // databases for posts
 // user, id, timestamp, image-src, data
 let postpath = "./db_postbase"
 let postCache = undefined
-let initPostDb = async () => {
+async function initPostDb () {
     postCache = JSON.parse(
         await fs.promises.readFile(
             postpath,
@@ -39,6 +38,7 @@ let initPostDb = async () => {
         )
     );
 }
+initDb();
 initPostDb();
 
 // handle caching
@@ -67,6 +67,24 @@ async function addRecord(newRecord) {
 
 }
 
+async function addPost(newPost) {
+
+    var handledUser = userCache.filter(function(query) {
+        return query.userHash === newPost.userHash;
+    });
+
+    postCache.push(newPost);
+
+    // Writing all records back to the file
+    await fs.promises.writeFile(
+        postpath,
+        JSON.stringify(postCache, null, 2)
+    )
+
+    return true;
+
+}
+
 app.get('/', function (req, res) {
     res.writeHead('200');
     res.write(fs.readFileSync('assets/index.html', 'utf8'));
@@ -82,39 +100,42 @@ app.get('/register', function (req, res) {
 app.post('/login', function(req, res) {
     var {username, password, remember} = req.body;
 
-    var responseUrl = 'assets/successful.html/&';
+    var responseHtml = '';
 
     var user = dbCache.filter(function(query) {
-        return query.username === newRecord.username;
+        return query.username === username;
     });
 
     if (user.length == 0) {
-        responseUrl += "error=username_incorrect"
+        // realised far too late that im doing things wrong, that's a quickfix as time is running out :(
+        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&error=username_incorrect";}</script></body>';
         res.writeHead('401');
     } else
     if (user.password != password) {
-        responseUrl += "error=password_incorrect"
+        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&error=password_incorrect";}</script></body>';
         res.writeHead('401');
     } else {
         // temporary handle for the login duration
         var userHash = Math.random().toString(36).substring(2);
 
         userCache += {userHash, username};
-        responseUrl += "hash=" + userHash;
+        var attrib = "hash=" + userHash;
+        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&' + attrib + '";}</script></body>';
         res.writeHead('200');
     }
 
-    res.write(fs.readFileSync(responseUrl, 'utf8'));
     res.send();
 
     console.log(req.body);
+    console.log(res.body);
+    console.log(userCache.body);
 });
 app.post('/register', async (req, res) => {
     var {username, email, password, passwordRepeat} = req.body;
 
     await addRecord({username, email, password});
 });
-app.post('post', async (req, res) => {
+app.post('/post', async (req, res) => {
     // handle and date will be located in a hidden input field
     var {handle, date, imgUrl, text} = req.body;
     console.log(req.body);
