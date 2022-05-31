@@ -10,3 +10,6 @@ menuOpen.addEventListener("click", () => {
 menuClose.addEventListener("click", () => {
     overlay.classList.remove("overlay--active");
 });
+doc.querySelector("#login-show").addEventListener("click",  () => {
+    alert ("Hello World!");
+});

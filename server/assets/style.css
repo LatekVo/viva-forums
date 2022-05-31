@@ -24,13 +24,13 @@ header {
 }
 
 .nav__links a,
-.cta,
+.login-show,
 .overlay__content a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: #edf0f1;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     text-transform: uppercase;
 }
 
@@ -51,8 +51,8 @@ header {
     color: #0088a9;
 }
 
-.cta {
-    padding: 9px 25px;
+.login-show {
+    padding: 4px 18px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
     border-radius: 50px;
@@ -60,15 +60,12 @@ header {
     transition: background-color 0.3s ease 0s;
 }
 
-.cta:hover {
+.login-show:hover {
     background-color: rgba(0, 136, 169, 0.8);
 }
 
 /* Mobile Nav */
 
-.menu {
-    display: none;
-}
 
 .overlay {
     height: 100%;
@@ -111,27 +108,6 @@ header {
     right: 45px;
     font-size: 60px;
     color: #edf0f1;
-}
-
-@media screen and (max-height: 450px) {
-    .overlay a {
-        font-size: 20px;
-    }
-    .overlay .close {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .nav__links,
-    .cta {
-        display: none;
-    }
-    .menu {
-        display: initial;
-    }
 }
 
 div.register-background {
@@ -185,13 +161,12 @@ input {
 }
 
 div.login-box {
-    /*display: none;*/
-
+    display: none;
     position: absolute;
     top: 20vh;
     left: 60vw;
     width: 40vh;
-
+    z-index: 69;
     border: black solid thin;
     border-radius: 1%;
 
@@ -325,4 +300,28 @@ div.bars {
     position: fixed;
     top: 10vh;
     color: whitesmoke;
+}
+.outer-background{
+    position: absolute;
+
+    width: 20vw;
+    height: 100vw;
+    z-index: -3;
+    top: 0;
+    transform: translateX(-50%);
+
+    background: repeating-linear-gradient(
+            -45deg,
+            #808dcf,
+            #808dcf 30px,
+            #5d6caf 30px,
+            #5d6caf 60px
+    );
+}
+.right{
+    right: -10vh;
+    width: 10vw;
+}
+.login-show{
+
 }
