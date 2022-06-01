@@ -111,9 +111,7 @@ app.post('/login', function(req, res) {
         res.cookie('error', 'invalid_username');
     }
 
-    if (user.length != 0 && user.password != password) {
-        res.cookie('error', 'invalid_password');
-    } else {
+    if (user[0]["password"] == password) {
         console.log("user found, hash sent");
 
         // temporary handle for the login duration
@@ -124,6 +122,9 @@ app.post('/login', function(req, res) {
         userCache.push(handledUser);
 
         res.cookie('secureUserHash', handledUser.hash);
+
+    } else {
+        res.cookie('error', 'invalid_password');
     }
 
     //res.cookie('loginerror', errors);
@@ -146,30 +147,34 @@ app.post('/addPost', async (req, res) => {
     console.log(req.body);
 
     var status = await addPost({handle, imgUrl, topic, content});
+
     if (status == false) {
         res.writeHead('401')
     } else {
         res.writeHead('200');
     }
 
+    res.write(fs.readFileSync('assets/index.html', 'utf8'));
     res.send();
 });
 // 64 posts per page
 // pages are just the most recent posts
 app.get('/getPost/:page', (req, res) => {
 
-    console.log("posts requested.");
+    res.writeHead('200');
 
     var multi = req.params.page * 64;
 
     if (postCache.length < 64) {
-        res.write(postCache);
+        res.write(JSON.stringify(postCache));
     } else {
         if (postCache.length < multi + 63)
             multi = postCache.length - 63;
 
         res.write(dbCache.slice(multi, multi + 63));
     }
+
+    res.send();
 });
 var server = app.listen(3000);
 console.log("server started");

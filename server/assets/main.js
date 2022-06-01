@@ -13,13 +13,21 @@ document.getElementById('login-close').addEventListener('click', () => {
     document.getElementById('login-box').style = "display: none;";
 });
 
-let pageNum = 0;
-
 // quality of life plagiarism - https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
-function get_cookie(name){
-    return document.cookie.split(';').some(c => {
-        return c.trim().startsWith(name + '=');
-    });
+function get_cookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 function delete_cookie(name, path, domain ) {
@@ -40,7 +48,6 @@ if (document.cookie.indexOf('error') != -1) {
             c = c.substr(name.length);
             break;
         }
-
     }
     console.log(c);
     var errorBlock = document.getElementById('login-error');
@@ -49,6 +56,11 @@ if (document.cookie.indexOf('error') != -1) {
     errorBlock.innerHTML = cValue.split('_')[0] + " " + cValue.split('_')[1];
     delete_cookie("error", '/', 'localhost');
 }
+
+
+let pageNum = 0;
+document.getElementById('handle').value = get_cookie('secureUserHash');
+console.log(get_cookie('secureUserHash'));
 
 var postsRequest = new XMLHttpRequest();
 postsRequest.onreadystatechange = () => {
@@ -62,5 +74,6 @@ postsRequest.onreadystatechange = () => {
         document.getElementById("postings").innerHTML = wholePage;
     }
 };
-postsRequest.open("GET", "/getPost/" + pagenNum.toString(), true);
+
+postsRequest.open("GET", "/getPost/" + pageNum.toString(), true);
 postsRequest.send();
