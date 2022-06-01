@@ -10,7 +10,7 @@ document.getElementById('login-show').addEventListener('click', () => {
 
 document.getElementById('login-close').addEventListener('click', () => {
     // similar behavior as clicking on a link
-    document.getElementById('login-box').style = "display: block; position: fixed;";
+    document.getElementById('login-box').style = "display: none;";
 });
 
 let pageNum = 0;
@@ -50,8 +50,8 @@ if (document.cookie.indexOf('error') != -1) {
     delete_cookie("error", '/', 'localhost');
 }
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = () => {
+var postsRequest = new XMLHttpRequest();
+postsRequest.onreadystatechange = () => {
     if (this.readyState == 4 && this.status == 200) {
 
         var rawData = XMLHttpRequest.responseText;
@@ -62,5 +62,5 @@ xhttp.onreadystatechange = () => {
         document.getElementById("postings").innerHTML = wholePage;
     }
 };
-xhttp.open("GET", "getPost/" + pagenNum.toString(), true);
-xhttp.send();
+postsRequest.open("GET", "getPost/" + pagenNum.toString(), true);
+postsRequest.send();
