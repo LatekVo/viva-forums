@@ -5,7 +5,12 @@ document.getElementById('login-register').addEventListener('click', () => {
 
 document.getElementById('login-show').addEventListener('click', () => {
     // similar behavior as clicking on a link
-    document.getElementById('login-box').style = "display: block; position: -webkit-sticky; position: sticky;";
+    document.getElementById('login-box').style = "display: block; position: fixed;";
+});
+
+document.getElementById('login-close').addEventListener('click', () => {
+    // similar behavior as clicking on a link
+    document.getElementById('login-box').style = "display: block; position: fixed;";
 });
 
 // quality of life plagiarism - https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
@@ -24,7 +29,7 @@ function delete_cookie(name, path, domain ) {
     }
 }
 
-if (document.cookie.indexOf('error=') != -1) {
+if (document.cookie.indexOf('error') != -1) {
     var cookieList = document.cookie.split(';');
     var c;
     for (var i = 0; i < cookieList.length; i++) {
