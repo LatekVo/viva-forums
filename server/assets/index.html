@@ -61,8 +61,28 @@
     </div>
 </div>
 <div class="post-box">
-    <div class="post-owner">Jak minął dzień?<br>
-        Opisz go, w swoim poście!</div>
+    <form action="/addPost" method="POST">
+        <div class="post-make">
+            <label for="handle"><b></b></label>
+            <input type="text" id="handle" name="handle" required style="display: none">
+        </div>
+        <div class="post-make">
+            <label for="imgUrl"><b>Image (optional)</b></label>
+            <input type="text" id="imgUrl" name="imgUrl">
+        </div>
+        <div class="post-make">
+            <label for="topic"><b>Topic of a post</b></label>
+            <input type="text" id="topic" name="topic">
+        </div>
+        <div class="post-make">
+                <label for="content"><b>Post content</b></label>
+                <textarea id="content" name="content" rows="4" cols="50" placeholder="Tutaj możesz opisać swój dzień"></textarea>
+        </div>
+        <div class="post-make">
+            <button class="post-button" id="post-post" type="submit">Post</button>
+        </div>
+    </form>
+
 </div>
 <!-- Overlaying elements -->
 <div class="login-box" id="login-box">
