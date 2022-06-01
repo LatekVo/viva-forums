@@ -281,10 +281,13 @@ div.post-name{
     border-left: 7px lightblue solid;
     color:#0F52BA;
 }
-div.post-creator{
+div.post-creator,
+.creator-id{
     margin-bottom: 5px;
     border-bottom: 1px solid red;
     text-shadow: #5D3FD3 3px 2px;
+    display: inline-block;
+    margin-right: 5px;
 }
 div.post-discription{
     border-bottom: 2px black solid;
