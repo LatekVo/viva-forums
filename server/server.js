@@ -43,7 +43,7 @@ initPostDb();
 
 // handle caching
 // handle (is already verified to be valid if it can be found here), username
-let userCache = [];
+const userCache = [{hash: "secretAnonHash", username: "Anonymous"}];
 
 async function addRecord(newRecord) {
 
@@ -107,33 +107,28 @@ app.post('/login', function(req, res) {
     });
 
     var errors = 'none';
-    var userHash = 'none';
     if (user.length == 0) {
-        // realised far too late that im doing things wrong, that's a quickfix as time is running out :(
-        errors += 'invalid username ';
-        res.writeHead('401');
-    } else
-    if (user.password != password) {
-        errors += 'invalid password ';
-        res.writeHead('401');
-    } else {
-        // temporary handle for the login duration
-        var userHash = Math.random().toString(36).substring(2);
-
-        userCache += {userHash, username};
-
-        res.writeHead('200');
+        res.cookie('error', 'invalid_username');
     }
 
-    console.log(req.body);
-    console.log(res.body);
-    console.log(userCache.body);
+    if (user.length != 0 && user.password != password) {
+        res.cookie('error', 'invalid_password');
+    } else {
+        console.log("user found, hash sent");
 
-    res.cookie('loginerror', errors);
-    res.cookie('secureUserHash', userHash);
+        // temporary handle for the login duration
+        var handledUser = {hash: "null", username: "null"};
+        handledUser.hash = Math.random().toString(36).substring(2);
+        handledUser.username = username;
+
+        userCache.push(handledUser);
+
+        res.cookie('secureUserHash', handledUser.hash);
+    }
+
+    //res.cookie('loginerror', errors);
     res.write(fs.readFileSync('assets/index.html', 'utf8'));
     res.send();
-
 });
 app.post('/register', async (req, res) => {
     var {username, email, password, passwordRepeat} = req.body;
