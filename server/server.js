@@ -133,6 +133,8 @@ app.post('/login', function(req, res) {
 app.post('/register', async (req, res) => {
     var {username, email, password, passwordRepeat} = req.body;
 
+    console.log("new account added");
+
     await addRecord({username, email, password});
 
     res.write(fs.readFileSync('assets/index.html', 'utf8'));
@@ -155,6 +157,9 @@ app.post('/addPost', async (req, res) => {
 // 64 posts per page
 // pages are just the most recent posts
 app.get('/getPost/:page', (req, res) => {
+
+    console.log("posts requested.");
+
     var multi = req.params.page * 64;
 
     if (postCache.length < 64) {

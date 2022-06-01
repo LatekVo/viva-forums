@@ -62,5 +62,5 @@ postsRequest.onreadystatechange = () => {
         document.getElementById("postings").innerHTML = wholePage;
     }
 };
-postsRequest.open("GET", "getPost/" + pagenNum.toString(), true);
+postsRequest.open("GET", "/getPost/" + pagenNum.toString(), true);
 postsRequest.send();
