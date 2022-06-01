@@ -73,6 +73,10 @@ async function addPost(newPost) {
         return query.userHash === newPost.userHash;
     });
 
+    if (handledUser.length == 0) {
+        return false;
+    }
+
     postCache.push(newPost);
 
     // Writing all records back to the file
@@ -144,6 +148,13 @@ app.post('/register', async (req, res) => {
 app.post('/addPost', async (req, res) => {
     // handle and date will be located in a hidden input field
     var {handle, imgUrl, topic, content} = req.body;
+
+    // convert temporary handle to (currently) pernament username
+
+    handle = userCache.filter(function(query) {
+        return query.userHash === handle;
+    })[0]["username"];
+
     console.log(req.body);
 
     var status = await addPost({handle, imgUrl, topic, content});

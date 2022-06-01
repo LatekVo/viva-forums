@@ -66,9 +66,19 @@ var postsRequest = new XMLHttpRequest();
 postsRequest.onreadystatechange = () => {
     if (this.readyState == 4 && this.status == 200) {
 
-        var rawData = XMLHttpRequest.responseText;
-
+        var rawData = JSON.parse(XMLHttpRequest.responseText);
         var wholePage;
+
+        for (var i = 0; i < rawData.length; i += 1) {
+            wholePage += '<div className="post">'
+                + '<div class="post-name"><h2>' + rawData[i]["topic"] + '</h2></div>'
+                + '<div class="post-creator">' + rawData[i]["handle"] + '</div>'
+                + '<div class="post-discription"><p>';
+            if (rawData[i]["imgUrl"].length > 0) {
+                wholePage += '<img src="' + rawData[i]["imgUrl"] + '" alt="image">';
+            }
+            wholePage += rawData[i]["content"] + '</p></div></div>';
+        }
 
 
         document.getElementById("postings").innerHTML = wholePage;
