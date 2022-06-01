@@ -116,8 +116,6 @@ app.post('/login', function(req, res) {
     }
 
     if (user[0]["password"] == password) {
-        console.log("user found, hash sent");
-
         // temporary handle for the login duration
         var handledUser = {hash: "null", username: "null"};
         handledUser.hash = Math.random().toString(36).substring(2);
@@ -127,6 +125,7 @@ app.post('/login', function(req, res) {
 
         res.cookie('secureUserHash', handledUser.hash);
 
+        console.log("user found, hash sent: " + handledUser.hash + " for: " + handledUser.username);
     } else {
         res.cookie('error', 'invalid_password');
     }
@@ -150,10 +149,13 @@ app.post('/addPost', async (req, res) => {
     var {handle, imgUrl, topic, content} = req.body;
 
     // convert temporary handle to (currently) pernament username
+    var linekedHandleList = userCache.filter(function(query) {
+        return query.hash === handle;
+    });
 
-    handle = userCache.filter(function(query) {
-        return query.userHash === handle;
-    })[0]["username"];
+    console.log(linekedHandleList);
+
+    handle = linekedHandleList[0].username;
 
     console.log(req.body);
 
