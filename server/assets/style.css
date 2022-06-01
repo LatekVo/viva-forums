@@ -68,51 +68,6 @@ a{
     background-color: rgba(0, 136, 169, 0.8);
 }
 
-/* Mobile Nav */
-
-
-.overlay {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: #24252a;
-    overflow-x: hidden;
-    transition: width 0.5s ease 0s;
-}
-
-.overlay--active {
-    width: 100%;
-}
-
-.overlay__content {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.overlay a {
-    padding: 15px;
-    font-size: 36px;
-    display: block;
-    transition: color 0.3s ease 0s;
-}
-
-.overlay a:hover,
-.overlay a:focus {
-    color: #0088a9;
-}
-.overlay .close {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-    color: #edf0f1;
-}
 
 div.register-background {
     position: absolute;
@@ -284,10 +239,13 @@ div.post-name{
     border-left: 7px lightblue solid;
     color:#0F52BA;
 }
-div.post-creator{
+div.post-creator,
+.creator-id{
     margin-bottom: 5px;
     border-bottom: 1px solid red;
     text-shadow: #5D3FD3 3px 2px;
+    display: inline-block;
+    margin-right: 5px;
 }
 div.post-discription{
     border-bottom: 2px black solid;
@@ -367,4 +325,26 @@ a img{
     background-color: #CCCCFF;
     padding: 20px;
     border-radius: 20px;
+}
+#content{
+    height: 120px;
+}
+.post-box input{
+    width: 80%;
+}
+.post-box label{
+    margin-left:5px;
+}
+textarea{
+    padding: 2px;
+    display: block;
+}
+.post-button{
+    left: 50%;
+    position: relative;
+    margin-top: 20px;
+    padding: 15px 40px 15px;
+}
+button{
+    margin: 10px;
 }
