@@ -165,12 +165,12 @@ input {
 }
 
 div.login-box {
-    display: none;
-    position: absolute;
+    display: table;
+    position: fixed;
     top: 20vh;
     left: 60vw;
     width: 40vh;
-    z-index: 69;
+    z-index: 10;
     border: black solid thin;
     border-radius: 1%;
 
@@ -205,15 +205,18 @@ div.login-header {
 
     font-size: larger;
 }
-.login-button{
-    background-color: #1F51FF;
+button#login-show{
+    background-color: #CCCCFF;
     color: black;
     padding: 5px;
     text-align: center;
-    border: 3px blue solid;
+    border: 1px blue solid;
+    border-radius: 3%;
+    font-size: larger;
     margin: 5px 3px 0;
+    font-family: "Montserrat", sans-serif;
 }
-.login-button:hover{
+button#login-show:hover{
     cursor: pointer;
 }
 
@@ -337,7 +340,7 @@ div.bars {
 .post:nth-of-type(1){
     margin-top: 4vw;
 }
-.post-make{
+.post-box{
     background-color: #7393B3;
     width: 25vw;
     height: 60vh;

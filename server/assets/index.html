@@ -19,46 +19,9 @@
             </svg></a></li>
         </ul>
     </nav>
-    <button class="login-show" id="login-show">Login</button>
+    <button id="login-show">Login</button>
 </header>
-<!-- Overlaying elements -->
-<div class="login-box">
-    <div class="login-header">
-        Login
-    </div>
-    <div class="login-inputs">
 
-        <form action="login" method="POST">
-            <!-- on clicking the register button, a full redirect will occur -->
-            <div class="login-error">Lorem Ipsum </div>
-            <div class="login-field">
-                <label for="login-username"><b>Username</b></label>
-                <input type="text" id="login-username" name="username" required>
-            </div>
-
-            <div class="login-field">
-                <label for="login-password"><b>Password</b></label>
-                <input type="password" id="login-password" name="password" required>
-            </div>
-
-            <div class="login-field">
-                <label for="remember-me"><b>Remember me</b></label>
-                <input type="checkbox" checked="checked" id="remember-me" name="remember">
-            </div>
-
-            <div class="login-field">
-                <button class="login-button" id="login-login" type="submit">
-                    Login
-                </button>
-                <button class="login-button register" id="login-register" type="reset">
-                    Register
-                </button>
-            </div>
-
-
-        </form>
-    </div>
-</div>
 <div class="outer-background"></div>
 <div class="outer-background right"></div>
 <div class="bars"></div>
@@ -97,9 +60,46 @@
         </div>
     </div>
 </div>
-<div class="post-make">
+<div class="post-box">
     <div class="post-owner">Jak minął dzień?<br>
         Opisz go, w swoim poście!</div>
+</div>
+<!-- Overlaying elements -->
+<div class="login-box" id="login-box">
+    <div class="login-header">
+        Login
+    </div>
+    <div class="login-inputs">
+
+        <form action="login" method="POST">
+            <!-- on clicking the register button, a full redirect will occur -->
+            <div class="login-error" id="login-error">Lorem Ipsum </div>
+            <div class="login-field">
+                <label for="login-username"><b>Username</b></label>
+                <input type="text" id="login-username" name="username" required>
+            </div>
+
+            <div class="login-field">
+                <label for="login-password"><b>Password</b></label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+
+            <div class="login-field">
+                <label for="remember-me"><b>Remember me</b></label>
+                <input type="checkbox" checked="checked" id="remember-me" name="remember">
+            </div>
+
+            <div class="login-field">
+                <button class="login-button" id="login-login" type="submit">
+                    Login
+                </button>
+                <button class="login-button register" id="login-register" type="reset">
+                    Register
+                </button>
+            </div>
+
+        </form>
+    </div>
 </div>
 <script src="main.js"></script>
 
