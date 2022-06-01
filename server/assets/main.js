@@ -59,15 +59,20 @@ if (document.cookie.indexOf('error') != -1) {
 
 
 let pageNum = 0;
-document.getElementById('handle').value = get_cookie('secureUserHash');
-console.log(get_cookie('secureUserHash'));
 
+if (get_cookie('secureUserHash') != "") {
+    document.getElementById('handle').value = get_cookie('secureUserHash');
+    document.getElementById('username').style = "display: inline-block; color: white;";
+    document.getElementById('username').innerHTML = "Private user handle: " + document.getElementById('handle').value;
+}
 var postsRequest = new XMLHttpRequest();
-postsRequest.onreadystatechange = () => {
+postsRequest.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 
-        var rawData = JSON.parse(XMLHttpRequest.responseText);
+        var rawData = JSON.parse(postsRequest.responseText);
         var wholePage;
+
+        console.log('starting parsing posts');
 
         for (var i = 0; i < rawData.length; i += 1) {
             wholePage += '<div className="post">'
@@ -80,6 +85,7 @@ postsRequest.onreadystatechange = () => {
             wholePage += rawData[i]["content"] + '</p></div></div>';
         }
 
+        console.log('finished parsing posts');
 
         document.getElementById("postings").innerHTML = wholePage;
     }

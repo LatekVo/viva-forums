@@ -220,9 +220,8 @@ div.post{
     position: absolute;
     width: 45vw;
     background-color: #7393B3;
-    padding: 20px;
+    padding: 5vh 20px;
     left: 14vw;
-    height: 100vw;
 }
 div.post-time {
     font-size: small;
@@ -251,7 +250,7 @@ div.post-discription{
     border-bottom: 2px black solid;
     margin-bottom: 50px;
 }
-.post img{
+p img{
     width: 95%;
     display: block;
     margin-left: auto;
@@ -259,7 +258,7 @@ div.post-discription{
 
 }
 div.bars {
-    position: absolute;
+    position: fixed;
 
     width: 4vw;
     height: 200vh;
@@ -275,7 +274,7 @@ div.bars {
 }
 
 .outer-background{
-    position: absolute;
+    position: fixed;
 
     width: 20vw;
     height: 200vh;
@@ -292,7 +291,7 @@ div.bars {
     );
 }
 .right{
-    right: -10vh;
+    right: -5vw;
     width: 10vw;
 }
 .post:nth-of-type(1){
@@ -308,7 +307,7 @@ div.bars {
     top: 9vh;
     color: whitesmoke;
     border-radius: 3px;
-    padding: 15px 15px;
+    padding: 5px 15px;
 }
 .friends-tab{
 
