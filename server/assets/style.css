@@ -178,7 +178,7 @@ button#login-show:hover{
 div.login-inputs {
     display: block;
 
-    width:100%;
+    width: 100%;
 }
 div.login-field {
     display: table;
@@ -262,7 +262,7 @@ div.bars {
     position: absolute;
 
     width: 4vw;
-    height: 100vw;
+    height: 200vh;
     z-index: -2;
     top: 0;
     left: 10vw;
@@ -278,7 +278,7 @@ div.bars {
     position: absolute;
 
     width: 20vw;
-    height: 100vw;
+    height: 200vh;
     z-index: -3;
     top: 0;
     transform: translateX(-50%);
