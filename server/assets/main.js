@@ -13,6 +13,8 @@ document.getElementById('login-close').addEventListener('click', () => {
     document.getElementById('login-box').style = "display: block; position: fixed;";
 });
 
+let pageNum = 0;
+
 // quality of life plagiarism - https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
 function get_cookie(name){
     return document.cookie.split(';').some(c => {
@@ -47,3 +49,18 @@ if (document.cookie.indexOf('error') != -1) {
     errorBlock.innerHTML = cValue.split('_')[0] + " " + cValue.split('_')[1];
     delete_cookie("error", '/', 'localhost');
 }
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = () => {
+    if (this.readyState == 4 && this.status == 200) {
+
+        var rawData = XMLHttpRequest.responseText;
+
+        var wholePage;
+
+
+        document.getElementById("postings").innerHTML = wholePage;
+    }
+};
+xhttp.open("GET", "getPost/" + pagenNum.toString(), true);
+xhttp.send();

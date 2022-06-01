@@ -138,13 +138,33 @@ app.post('/register', async (req, res) => {
     res.write(fs.readFileSync('assets/index.html', 'utf8'));
     res.send();
 });
-app.post('/post', async (req, res) => {
+app.post('/addPost', async (req, res) => {
     // handle and date will be located in a hidden input field
-    var {handle, date, imgUrl, text} = req.body;
+    var {handle, imgUrl, topic, content} = req.body;
     console.log(req.body);
 
-    await addPost({username, email, password});
-});
+    var status = await addPost({handle, imgUrl, topic, content});
+    if (status == false) {
+        res.writeHead('401')
+    } else {
+        res.writeHead('200');
+    }
 
+    res.send();
+});
+// 64 posts per page
+// pages are just the most recent posts
+app.get('/getPost/:page', (req, res) => {
+    var multi = req.params.page * 64;
+
+    if (postCache.length < 64) {
+        res.write(postCache);
+    } else {
+        if (postCache.length < multi + 63)
+            multi = postCache.length - 63;
+
+        res.write(dbCache.slice(multi, multi + 63));
+    }
+});
 var server = app.listen(3000);
 console.log("server started");
