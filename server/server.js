@@ -106,34 +106,42 @@ app.post('/login', function(req, res) {
         return query.username === username;
     });
 
+    var errors = 'none';
+    var userHash = 'none';
     if (user.length == 0) {
         // realised far too late that im doing things wrong, that's a quickfix as time is running out :(
-        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&error=username_incorrect";}</script></body>';
+        errors += 'invalid username ';
         res.writeHead('401');
     } else
     if (user.password != password) {
-        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&error=password_incorrect";}</script></body>';
+        errors += 'invalid password ';
         res.writeHead('401');
     } else {
         // temporary handle for the login duration
         var userHash = Math.random().toString(36).substring(2);
 
         userCache += {userHash, username};
-        var attrib = "hash=" + userHash;
-        responseHtml = '<head><meta charset="UTF-8"> <title>Processing URL</title></head><body><script>window.onload = function() {window.location.href = "successful.html/&' + attrib + '";}</script></body>';
+
         res.writeHead('200');
     }
-
-    res.send();
 
     console.log(req.body);
     console.log(res.body);
     console.log(userCache.body);
+
+    res.cookie('loginerror', errors);
+    res.cookie('secureUserHash', userHash);
+    res.write(fs.readFileSync('assets/index.html', 'utf8'));
+    res.send();
+
 });
 app.post('/register', async (req, res) => {
     var {username, email, password, passwordRepeat} = req.body;
 
     await addRecord({username, email, password});
+
+    res.write(fs.readFileSync('assets/index.html', 'utf8'));
+    res.send();
 });
 app.post('/post', async (req, res) => {
     // handle and date will be located in a hidden input field

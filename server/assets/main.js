@@ -10,3 +10,8 @@ menuOpen.addEventListener("click", () => {
 menuClose.addEventListener("click", () => {
     overlay.classList.remove("overlay--active");
 });
+
+document.getElementById('login-register').addEventListener('click', () => {
+    // similar behavior as clicking on a link
+    window.location.href = "register.html";
+});

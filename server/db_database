@@ -3,5 +3,10 @@
     "username": "latek",
     "email": "latek@git.com",
     "password": "mypass"
+  },
+  {
+    "username": "armado",
+    "email": "orig@ami.com",
+    "password": "mypass"
   }
 ]
